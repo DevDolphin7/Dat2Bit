@@ -106,7 +106,7 @@ class GenerateUI():
 
 
     def create_ui(self):
-        self.open_file_button = ctk.CTkButton(self.root, text="Select Image",command=self.select_file)
+        self.open_file_button = ctk.CTkButton(self.root, text="Select Data File",command=self.select_file)
         self.canvas.create_window(140, 20, anchor="nw", window=self.open_file_button, width=105, height=30)
         self.output_dir_button = ctk.CTkButton(self.root,text="Save Location",command=self.select_output_dir)
         self.canvas.create_window(140, 60, anchor="nw", window=self.output_dir_button, width=105, height=30)
@@ -186,7 +186,7 @@ class DatToBit():
             # Get file name
             self.given_file_name = self.file_to_convert[self.file_to_convert.rfind("/")+1:self.file_to_convert.rfind(".")]
             with WithOpenFile(f"{self.output_dir}{self.given_file_name}.py", "w") as output:
-                output.write(f"def data():\n    data = \"\"\"{str(b)}\"\"\"\n    return data.encode('latin-1')")
+                output.write(f"def data():\n    data = \"\"\"{b}\"\"\"\n    return data.encode('latin-1')")
         except Exception as e:
             return e
         return True
