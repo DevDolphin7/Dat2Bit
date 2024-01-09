@@ -1,6 +1,6 @@
 import configparser, io
 import DOerrorLogging as log
-import dat.version as dev_info
+import version as dev_info
 import tkinter as tk
 import customtkinter as ctk
 from dat import dat_main as data_main
